@@ -29,6 +29,11 @@
             <div class="alert alert-danger" style="margin-top:18px;">
                 <strong>Error</strong> Your Uploaded image do not contain Human Faces
             </div>
+   {% else %}
+            <div class="alert alert-success" style="margin-top:18px;">
+                <strong>Success!</strong> Your image was processed successfully
+            </div>
+            <img src="{{ url_for('static', filename='detected-boxes.jpg' ) }}" alt="Image">
   {% endif %}
     {% endif %}
 </div>
