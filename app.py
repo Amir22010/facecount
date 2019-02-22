@@ -32,7 +32,9 @@ def index():
 @app.route('/', methods=['POST'])
 def upload():
     file = request.files['image']
-    f = os.path.join(file.filename)
+    
+    image = cv2.imdecode(np.fromstring(file.read(), np.uint8), cv2.IMREAD_UNCHANGED)
+    
     containNoFaces = False
     # add your custom code to check that the uploaded file is a valid image and not a malicious file (out-of-scope for this post)
 
@@ -42,9 +44,7 @@ def upload():
 
     #output = client.check('nudity', 'wad', 'celebrities', 'scam', 'face-attributes').set_file(f)
     #load the image with the imread function of the cv2 module 
-    image = cv2.imread(f)
   
-    image = np.array(image, dtype=np.uint8)
     #to convert from RGB to gray, we use the COLOR_BGR2GRAY code
     grayImage = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
