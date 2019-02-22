@@ -49,7 +49,7 @@ def upload():
     grayImage = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     #scaleFactor and minNeighbors 1.3, 5
-    faces = face_cascade.detectMultiScale(grayImage, 1.3, 5)
+    faces = face_cascade.detectMultiScale(grayImage, 1.3, 2)
 
     numfaces = len(faces)
  
